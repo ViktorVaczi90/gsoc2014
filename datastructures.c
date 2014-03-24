@@ -20,3 +20,12 @@ void data_to_csv(output_data* out_data){
     }
     fclose(fp);
 }
+void free_output_data(output_data* outdata)
+{
+    int i,j;
+    for(i = 0; i<outdata->rows ;i++)
+    {
+        free(outdata->datas[i]);
+    }
+    free(outdata->datas);
+}

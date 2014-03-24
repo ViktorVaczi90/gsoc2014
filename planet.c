@@ -29,3 +29,16 @@ void print_planet_data(planet* planet_input)
            ,planet_input->vel.x,planet_input->vel.y,planet_input->vel.z,
            planet_input->acc.x,planet_input->acc.y,planet_input->acc.z);
 }
+void free_planet_list(struct planet_list * list_of_planets)
+{
+
+    struct planet_list_item* current_planet, *previous_planet;
+    current_planet = list_of_planets->first_planet;
+    while(current_planet->next_planet)
+    {
+        previous_planet = current_planet;
+        current_planet = current_planet->next_planet;
+        free(previous_planet->planet);
+        free(previous_planet);
+    }
+}

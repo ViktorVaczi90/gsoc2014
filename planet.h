@@ -1,12 +1,17 @@
 #ifndef PLANET
 #define PLANET
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "datastructures.h"
+
+
 
 /*This structure defines a planet with its position, velocity and acceleration.
 I've added the acceleration to the properties for easier numerical integration*/
 typedef struct planet{
 char* name;
-struct dvec3 pos;
+struct  dvec3 pos;
 struct dvec3 vel;
 struct dvec3 acc;
 double mass;
@@ -26,4 +31,5 @@ int number_of_planets;
 
 int add_planet(dvec3 pos_in,dvec3 vel_in, double mass_in, char* name_in, struct planet_list * list_of_planets);
 void print_planet_data(planet* planet_input);
+void free_planet_list(struct planet_list * list_of_planets);
 #endif
