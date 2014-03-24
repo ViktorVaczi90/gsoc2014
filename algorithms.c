@@ -54,6 +54,7 @@ void iterate_all(double time, double time_step,planet_list* list_of_planets,outp
    {
     double current_time=0;
     int i,current_row;
+    //int j;
     struct planet_list_item* current_planet;
     current_planet = list_of_planets->first_planet->next_planet;
     //Here we create the space for the data array
@@ -90,7 +91,8 @@ void iterate_all(double time, double time_step,planet_list* list_of_planets,outp
     }
     for(current_row=0;current_time<time;current_time+=time_step)// Maybe this should be modified (possible error source)
     {
-
+        //if(((100*((double)current_time))/((double)time)) >j)
+            //{ j = (100*((double)current_time))/((double)time) ; printf("-");}
         one_iteration(list_of_planets);
         outdata->datas[current_row][0]=current_time;
         current_planet = list_of_planets->first_planet->next_planet;
